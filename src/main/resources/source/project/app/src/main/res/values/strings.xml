@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Start Android</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_name">Name</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_sign_up_short">No account yet? Create one</string>
+    <string name="action_login_short">Login</string>
+    <string name="action_login_message">Logging In ...</string>
+    <string name="action_logout_short">Logout</string>
+    <string name="action_create_account_short">Create account</string>
+    <string name="error_user_name">The name must be at least %1$d characters</string>
+    <string name="error_password">The password must be between %1$d - %2$d characters</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_login">Your details are incorrect. Please try again.</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="create_account_title">Create Account</string>
+    <string name="creating_account">Creating account ...</string>
+
+    <string name="existing_account">The account %1$s already exist</string>
+    <string name="not_existing_account">The account %1$s does not exist</string>
+
+    <string name="home_title">Home</string>
+    <string name="profile_title">Profile</string>
+    <string name="open_drawer">Open menu</string>
+    <string name="close_drawer">Close menu</string>
+</resources>
