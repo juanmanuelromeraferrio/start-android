@@ -1,12 +1,12 @@
-package com.android.start.service.factory;
+package #PACKAGE_NAME#.service.factory;
 
 
-import com.android.start.infrastructure.Database;
-import com.android.start.service.api.Service;
-import com.android.start.service.api.ServiceType;
-import com.android.start.service.api.Services;
-import com.android.start.service.api.UserService;
-import com.android.start.service.impl.UserServiceMock;
+import #PACKAGE_NAME#.infrastructure.Database;
+import #PACKAGE_NAME#.service.api.Service;
+import #PACKAGE_NAME#.service.api.ServiceType;
+import #PACKAGE_NAME#.service.api.Services;
+import #PACKAGE_NAME#.service.api.UserService;
+import #PACKAGE_NAME#.service.impl.UserServiceMock;
 
 import java.util.HashMap;
 import java.util.Map;

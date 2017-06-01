@@ -26,6 +26,7 @@ public class ProjectController {
 
 		AndroidProjectConfiguration configuration = new AndroidProjectConfiguration(resourceProperties);
 		configuration.setProjectPackage("com.chicha.arq");
+		configuration.addTransformTag("#PACKAGE_NAME#","com.chicha.arq");
 
 		ProjectBuilder projectBuilder = new ProjectBuilder();
 		projectBuilder.buildProject(configuration);

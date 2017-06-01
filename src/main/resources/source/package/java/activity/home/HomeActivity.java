@@ -1,4 +1,4 @@
-package com.android.start.activity.home;
+package #PACKAGE_NAME#.activity.home;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -17,9 +17,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.start.R;
-import com.android.start.dto.User;
-import com.android.start.service.factory.ServiceFactory;
+import #PACKAGE_NAME#.R;
+import #PACKAGE_NAME#.dto.User;
+import #PACKAGE_NAME#.service.factory.ServiceFactory;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

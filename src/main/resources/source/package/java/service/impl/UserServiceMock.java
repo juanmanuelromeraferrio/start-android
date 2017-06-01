@@ -1,12 +1,12 @@
-package com.android.start.service.impl;
+package #PACKAGE_NAME#.service.impl;
 
 
-import com.android.start.R;
-import com.android.start.StartAndroidApplication;
-import com.android.start.dto.User;
-import com.android.start.error.service.ServiceException;
-import com.android.start.infrastructure.Database;
-import com.android.start.service.api.UserService;
+import #PACKAGE_NAME#.R;
+import #PACKAGE_NAME#.StartAndroidApplication;
+import #PACKAGE_NAME#.dto.User;
+import #PACKAGE_NAME#.error.service.ServiceException;
+import #PACKAGE_NAME#.infrastructure.Database;
+import #PACKAGE_NAME#.service.api.UserService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 

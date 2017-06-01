@@ -1,10 +1,10 @@
-package com.android.start.activity.splash;
+package #PACKAGE_NAME#.activity.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.android.start.R;
+import #PACKAGE_NAME#.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

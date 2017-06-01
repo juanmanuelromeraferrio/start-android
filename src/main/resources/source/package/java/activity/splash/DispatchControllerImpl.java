@@ -1,9 +1,9 @@
-package com.android.start.activity.splash;
+package #PACKAGE_NAME#.activity.splash;
 
 import android.os.AsyncTask;
 
-import com.android.start.activity.TaskResponse;
-import com.android.start.service.factory.ServiceFactory;
+import #PACKAGE_NAME#.activity.TaskResponse;
+import #PACKAGE_NAME#.service.factory.ServiceFactory;
 
 
 /**

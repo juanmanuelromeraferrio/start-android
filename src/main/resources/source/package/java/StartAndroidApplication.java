@@ -1,12 +1,12 @@
-package com.android.start;
+package #PACKAGE_NAME#;
 
 import android.app.Application;
 import android.content.Context;
 
-import com.android.start.infrastructure.Database;
-import com.android.start.infrastructure.StartAndroidDatabase;
-import com.android.start.service.api.Services;
-import com.android.start.service.factory.ServiceFactory;
+import #PACKAGE_NAME#.infrastructure.Database;
+import #PACKAGE_NAME#.infrastructure.StartAndroidDatabase;
+import #PACKAGE_NAME#.service.api.Services;
+import #PACKAGE_NAME#.service.factory.ServiceFactory;
 
 
 /**

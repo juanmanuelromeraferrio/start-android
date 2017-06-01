@@ -1,7 +1,7 @@
-package com.android.start.activity.splash;
+package #PACKAGE_NAME#.activity.splash;
 
 
-import com.android.start.activity.BaseController;
+import #PACKAGE_NAME#.activity.BaseController;
 
 /**
  * Created by Juan Manuel Romera on 17/6/2016.

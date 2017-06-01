@@ -1,4 +1,4 @@
-package com.android.start.error.service;
+package #PACKAGE_NAME#.error.service;
 
 /**
  * Created by Juan Manuel Romera on 17/5/2016.

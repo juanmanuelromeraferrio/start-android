@@ -1,4 +1,4 @@
-package com.android.start.activity.splash;
+package #PACKAGE_NAME#.activity.splash;
 
 /**
  * Created by Juan Manuel Romera on 17/6/2016.

@@ -1,4 +1,4 @@
-package com.android.start.dto;
+package #PACKAGE_NAME#.dto;
 
 import java.io.Serializable;
 

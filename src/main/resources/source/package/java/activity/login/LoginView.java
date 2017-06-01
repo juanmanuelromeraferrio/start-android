@@ -1,6 +1,6 @@
-package com.android.start.activity.login;
+package #PACKAGE_NAME#.activity.login;
 
-import com.android.start.activity.BaseView;
+import #PACKAGE_NAME#.activity.BaseView;
 
 /**
  * Created by Juan Manuel Romera on 21/5/2016.

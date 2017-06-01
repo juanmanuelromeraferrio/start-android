@@ -1,4 +1,4 @@
-package com.android.start.activity.home;
+package #PACKAGE_NAME#.activity.home;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,9 +11,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.start.R;
-import com.android.start.activity.login.LoginActivity;
-import com.android.start.service.factory.ServiceFactory;
+import #PACKAGE_NAME#.R;
+import #PACKAGE_NAME#.activity.login.LoginActivity;
+import #PACKAGE_NAME#.service.factory.ServiceFactory;
 
 /**
  * Created by Juan Manuel Romera Ferrio on 26/10/16.

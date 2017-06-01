@@ -1,4 +1,4 @@
-package com.android.start.util;
+package #PACKAGE_NAME#.util;
 
 import android.content.Context;
 

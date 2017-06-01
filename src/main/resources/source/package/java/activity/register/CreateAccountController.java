@@ -1,6 +1,6 @@
-package com.android.start.activity.register;
+package #PACKAGE_NAME#.activity.register;
 
-import com.android.start.activity.BaseController;
+import #PACKAGE_NAME#.activity.BaseController;
 
 /**
  * Created by Juan Manuel Romera on 21/5/2016.

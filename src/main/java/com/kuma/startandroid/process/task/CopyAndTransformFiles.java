@@ -4,25 +4,22 @@ import com.kuma.startandroid.error.BuildProjectException;
 import com.kuma.startandroid.file.ProjectFiles;
 import com.kuma.startandroid.process.AndroidProjectConfiguration;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 public class CopyAndTransformFiles implements CreateProjectTask {
 
-    @Override
-    public void execute(AndroidProjectConfiguration configuration) throws BuildProjectException {
-        Map<String, String> transform = new HashMap<>();
-        transform.put("a", "@");
+  @Override
+  public void execute(AndroidProjectConfiguration configuration) throws BuildProjectException {
+    ProjectFiles.copyAndTransform(configuration.getResourcesProperties()
+        .getSourceProjectFolderPath(), configuration.getResultPath(), configuration
+        .getResourcesProperties().getTransformTags(), configuration.getResourcesProperties()
+        .getFilters());
 
-        Set<String> filters = new HashSet<>();
-        filters.add("properties");
-        filters.add("java");
-        filters.add("xml");
+    configuration.getResultPackagesFolders().forEach(
+        (k, v) -> {
+          ProjectFiles.copyAndTransform(configuration.getResourcesProperties()
+              .getSourcePackageFolderPath() + ProjectFiles.SLASH + k, v, configuration
+              .getResourcesProperties().getTransformTags(), configuration.getResourcesProperties()
+              .getFilters());
 
-        ProjectFiles.copyAndTransform(configuration.getResourcesProperties().getSourceProjectFolderPath(),
-                configuration.getResultPath(),
-                transform, filters);
-    }
+        });
+  }
 }

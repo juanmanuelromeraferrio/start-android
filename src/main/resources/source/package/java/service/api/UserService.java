@@ -1,8 +1,8 @@
-package com.android.start.service.api;
+package #PACKAGE_NAME#.service.api;
 
-import com.android.start.dto.User;
-import com.android.start.error.service.ServiceException;
-import com.android.start.infrastructure.Database;
+import #PACKAGE_NAME#.dto.User;
+import #PACKAGE_NAME#.error.service.ServiceException;
+import #PACKAGE_NAME#.infrastructure.Database;
 
 /**
  * Created by Juan Manuel Romera on 16/5/2016.

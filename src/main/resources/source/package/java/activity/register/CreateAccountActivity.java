@@ -1,4 +1,4 @@
-package com.android.start.activity.register;
+package #PACKAGE_NAME#.activity.register;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -11,9 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.start.R;
-import com.android.start.activity.home.HomeActivity;
-import com.android.start.util.Validator;
+import #PACKAGE_NAME#.R;
+import #PACKAGE_NAME#.activity.home.HomeActivity;
+import #PACKAGE_NAME#.util.Validator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

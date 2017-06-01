@@ -2,6 +2,7 @@ package com.kuma.startandroid.file;
 
 import com.kuma.startandroid.error.BuildProjectException;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
@@ -17,7 +18,7 @@ import java.util.stream.Stream;
  */
 public class ProjectFiles {
 
-    public static final String SLASH = "/";
+    public static final String SLASH = File.separator;
     public static final String DOT = ".";
     public static final String DASH = "-";
 

@@ -1,9 +1,9 @@
-package com.android.start.infrastructure;
+package #PACKAGE_NAME#.infrastructure;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.android.start.StartAndroidApplication;
+import #PACKAGE_NAME#.StartAndroidApplication;
 import com.google.gson.Gson;
 
 /**

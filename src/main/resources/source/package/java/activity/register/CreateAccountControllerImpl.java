@@ -1,10 +1,10 @@
-package com.android.start.activity.register;
+package #PACKAGE_NAME#.activity.register;
 
 
-import com.android.start.activity.TaskResponse;
-import com.android.start.dto.User;
-import com.android.start.service.factory.ServiceFactory;
-import com.android.start.util.Validator;
+import #PACKAGE_NAME#.activity.TaskResponse;
+import #PACKAGE_NAME#.dto.User;
+import #PACKAGE_NAME#.service.factory.ServiceFactory;
+import #PACKAGE_NAME#.util.Validator;
 
 /**
  * Created by Juan Manuel Romera on 21/5/2016.

@@ -1,4 +1,4 @@
-package com.android.start.infrastructure;
+package #PACKAGE_NAME#.infrastructure;
 
 /**
  * Created by Juan Manuel Romera on 28/5/2017.

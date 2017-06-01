@@ -1,4 +1,4 @@
-package android.start.com.startandroid;
+package com.android.start;
 
 import org.junit.Test;
 

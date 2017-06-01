@@ -1,13 +1,13 @@
-package com.android.start.activity.register;
+package #PACKAGE_NAME#.activity.register;
 
 
 import android.os.AsyncTask;
 
-import com.android.start.activity.BaseController;
-import com.android.start.activity.TaskResponse;
-import com.android.start.dto.User;
-import com.android.start.error.service.ServiceException;
-import com.android.start.service.api.UserService;
+import #PACKAGE_NAME#.activity.BaseController;
+import #PACKAGE_NAME#.activity.TaskResponse;
+import #PACKAGE_NAME#.dto.User;
+import #PACKAGE_NAME#.error.service.ServiceException;
+import #PACKAGE_NAME#.service.api.UserService;
 
 /**
  * Created by Juan Manuel Romera on 17/5/2016.

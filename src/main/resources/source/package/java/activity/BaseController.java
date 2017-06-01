@@ -1,4 +1,4 @@
-package com.android.start.activity;
+package #PACKAGE_NAME#.activity;
 
 /**
  * Created by Juan Manuel Romera on 21/5/2016.

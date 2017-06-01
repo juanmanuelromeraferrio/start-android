@@ -1,13 +1,13 @@
-package com.android.start.activity.splash;
+package #PACKAGE_NAME#.activity.splash;
 
 import android.os.AsyncTask;
 
-import com.android.start.activity.BaseController;
-import com.android.start.activity.TaskResponse;
-import com.android.start.activity.home.HomeActivity;
-import com.android.start.activity.login.LoginActivity;
-import com.android.start.error.service.ServiceException;
-import com.android.start.service.api.UserService;
+import #PACKAGE_NAME#.activity.BaseController;
+import #PACKAGE_NAME#.activity.TaskResponse;
+import #PACKAGE_NAME#.activity.home.HomeActivity;
+import #PACKAGE_NAME#.activity.login.LoginActivity;
+import #PACKAGE_NAME#.error.service.ServiceException;
+import #PACKAGE_NAME#.service.api.UserService;
 
 /**
  * Created by Juan Manuel Romera on 17/5/2016.
