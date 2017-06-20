@@ -4,8 +4,9 @@
   "description": "Start Android Initializer Project",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open",
-    "build": "NODE_ENV='production' webpack -p"
+    "start": "webpack-dev-server --open --progress --inline --colors",
+    "webpack": "webpack",
+    "build": "NODE_ENV='production' webpack -p --progress --colors"
   },
   "author": "Juan Manuel Romera Ferrio",
   "license": "MIT",
@@ -21,6 +22,7 @@
     "babel-preset-env": "^1.2.2",
     "babel-preset-react": "^6.23.0",
     "css-loader": "^0.27.3",
+    "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.28.0",
     "style-loader": "^0.16.0",
     "webpack": "^2.3.1",
@@ -29,8 +31,10 @@
   "dependencies": {
     "axios": "^0.16.0",
     "prop-types": "^15.5.4",
-    "react": "^16.0.0-alpha.5",
-    "react-dom": "^16.0.0-alpha.5",
+    "material-ui": "latest",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-tap-event-plugin": "^2.0.1",
     "react-router-dom": "^4.0.0"
   }
 }

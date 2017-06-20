@@ -1,9 +1,15 @@
 var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
-  entry: './app/index.js',
+  entry: {
+    main: [
+      // only- means to only hot reload for successful updates
+      'webpack/hot/only-dev-server',
+      './app/index.js',
+    ],
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index_bundle.js',
@@ -12,13 +18,21 @@ var config = {
   module: {
     rules: [
       { test: /\.(js)$/, use: 'babel-loader' },
-      { test: /\.css$/, use: [ 'style-loader', 'css-loader' ]}
+      { test: /\.css$/, use: [ 'style-loader', 'css-loader' ]},
+      { test: /\.(jpe?g|png|gif|svg)$/i, use: 'file-loader'}
     ]
   },
   devServer: {
-    historyApiFallback: true,
+    contentBase: 'app', // Relative directory for base of server
+    hot: true, // Live-reload
+    inline: true,
+    port: 3000, // Port Number
+    host: 'localhost', // Change to '0.0.0.0' for external facing server
   },
   plugins: [
+      // Enables Hot Modules Replacement
+    new webpack.HotModuleReplacementPlugin(),
+    
     new HtmlWebpackPlugin({
       template: 'app/index.html'
     })
