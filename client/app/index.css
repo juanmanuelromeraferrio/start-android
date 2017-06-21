@@ -87,3 +87,16 @@ li {
   -moz-box-shadow: 0 0 30px 5px rgba(34, 34, 34, 0.75);
   box-shadow: 0 0 30px 5px rgba(34, 34, 34, 0.75); 
 }
+
+.step-container {
+   margin: 0px 16px;
+}
+
+.step-container .content {
+  margin-bottom: 60px;
+  margin-top: 40px;
+}
+
+.step-containe .button {
+  margin: 20px 16px;
+}

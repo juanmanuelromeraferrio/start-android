@@ -8,6 +8,14 @@ import {
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
+var assign        = require('object-assign')
+var ProjectSettings = require('./ProjectSettings');
+
+var projectsValues = {
+  name     : '',
+  package  : ''
+}
+
 class ProjectStepper extends React.Component {
   constructor(props) {
       super();
@@ -19,6 +27,7 @@ class ProjectStepper extends React.Component {
 
       this.handleNext = this.handleNext.bind(this);
       this.handlePrev = this.handlePrev.bind(this);
+      this.saveValues = this.saveValues.bind(this);
   }
 
   handleNext() {
@@ -37,22 +46,32 @@ class ProjectStepper extends React.Component {
     }
   };
 
+  saveValues(values) {
+    projectsValues = assign({}, projectsValues, values);
+  };
+
   getStepContent(stepIndex) {
+    let stepContent;
     switch (stepIndex) {
       case 0:
-        return 'Project Settings';
+        stepContent = <ProjectSettings values={projectsValues} save={this.saveValues}/>;
+        break;
       case 1:
-        return 'Project Design';
+       stepContent = 'Project Design';
+       break;
       case 2:
-        return 'Project Dependencies';
+        stepContent = 'Project Dependencies';
+        break;
       default:
-        return 'None';
+        return stepContent = 'None';
+        break;
     }
+
+    return <div className="content"> {stepContent} </div>
   }
 
   render() {
     const {finished, stepIndex} = this.state;
-    const contentStyle = {margin: '0 16px'};
 
     return (
       <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
@@ -67,7 +86,7 @@ class ProjectStepper extends React.Component {
             <StepLabel>Project Dependencies</StepLabel>
           </Step>
         </Stepper>
-        <div style={contentStyle}>
+        <div className='step-container'>
           {finished ? (
             <p>
               <a
@@ -82,8 +101,8 @@ class ProjectStepper extends React.Component {
             </p>
           ) : (
             <div>
-              <p>{this.getStepContent(stepIndex)}</p>
-              <div style={{marginTop: 12}}>
+              {this.getStepContent(stepIndex)}
+              <div className='step-container button'>
                 <FlatButton
                   label="Back"
                   disabled={stepIndex === 0}
