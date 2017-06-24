@@ -5,11 +5,12 @@ import {
   StepLabel,
 } from 'material-ui/Stepper';
 
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
+import StepButtons from './StepButtons';
+import SettingStep from './SettingStep';
+import DesignStep  from './DesignStep';
 
 var assign        = require('object-assign')
-var ProjectSettings = require('./ProjectSettings');
+
 
 var projectsValues = {
   name     : '',
@@ -27,17 +28,19 @@ class ProjectStepper extends React.Component {
 
       this.handleNext = this.handleNext.bind(this);
       this.handlePrev = this.handlePrev.bind(this);
-      this.saveValues = this.saveValues.bind(this);
   }
 
-  handleNext() {
+  handleNext(values) {
     const {stepIndex} = this.state;
     this.setState({
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
-  }
 
+    if(values) {
+      projectsValues = assign({}, projectsValues, values);
+    }
+  }
 
   handlePrev() {
     const {stepIndex} = this.state;
@@ -46,18 +49,14 @@ class ProjectStepper extends React.Component {
     }
   };
 
-  saveValues(values) {
-    projectsValues = assign({}, projectsValues, values);
-  };
-
   getStepContent(stepIndex) {
     let stepContent;
     switch (stepIndex) {
       case 0:
-        stepContent = <ProjectSettings values={projectsValues} save={this.saveValues}/>;
+        stepContent = <SettingStep values={projectsValues} next={this.handleNext} />;
         break;
       case 1:
-       stepContent = 'Project Design';
+       stepContent = <DesignStep values={projectsValues} back={this.handlePrev} next={this.handleNext} />
        break;
       case 2:
         stepContent = 'Project Dependencies';
@@ -102,19 +101,6 @@ class ProjectStepper extends React.Component {
           ) : (
             <div>
               {this.getStepContent(stepIndex)}
-              <div className='step-container button'>
-                <FlatButton
-                  label="Back"
-                  disabled={stepIndex === 0}
-                  onTouchTap={this.handlePrev}
-                  style={{marginRight: 12}}
-                />
-                <RaisedButton
-                  label={stepIndex === 2 ? 'Finish' : 'Next'}
-                  primary={true}
-                  onTouchTap={this.handleNext}
-                />
-              </div>
             </div>
           )}
         </div>

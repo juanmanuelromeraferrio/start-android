@@ -93,10 +93,11 @@ li {
 }
 
 .step-container .content {
-  margin-bottom: 60px;
-  margin-top: 40px;
 }
 
-.step-containe .button {
-  margin: 20px 16px;
+.step-container .button {
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 40px;
+  margin-top: 70px;
 }
