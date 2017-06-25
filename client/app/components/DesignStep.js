@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import TextField from "material-ui/TextField";
 import StepButtons from "./StepButtons";
+import Palette from "./Palette";
 
 class DesignStep extends React.Component {
 	constructor(props) {
@@ -26,6 +27,7 @@ class DesignStep extends React.Component {
 	render() {
 		return (
 			<div>
+				<Palette />
 				<StepButtons back={this.back} next={this.next} />
 			</div>
 		);
