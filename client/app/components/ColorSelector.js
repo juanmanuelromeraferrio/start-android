@@ -1,63 +1,68 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var PropTypes = require('prop-types');
+import React from "react";
+import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 
-function SelectColor (props) {
-  var colors = ['red','blue','green'];
+function SelectColor(props) {
+  var colors = ["red", "blue", "green"];
   return (
-    <ul className='colors'>
-      {colors.map(function (color) {
+    <ul className="colors">
+      {colors.map(function(color) {
         return (
-          <li className='color-square'
-            style={{background: color}}
+          <li
+            className="color-square"
+            style={{
+              background: color
+            }}
             onClick={props.onSelect.bind(null, color)}
-            key={color}>
-          </li>
-        )
+            key={color}
+          />
+        );
       })}
     </ul>
-  )
+  );
 }
 
-function TemplateDisplay (props) {
-	return (
-		<div className='color-square' 
-			style={{background: props.color}} 
-		/>
-	)
+function TemplateDisplay(props) {
+  return (
+    <div
+      className="color-square"
+      style={{
+        background: props.color
+      }}
+    />
+  );
 }
 
 SelectColor.propTypes = {
-  onSelect: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired
 };
 
-
 class ColorSelector extends React.Component {
-	constructor(props) {
-    	super();
-    	this.state = {
-      	selectedColor: 'red'
-    	};
+  constructor(props) {
+    super();
+    this.state = {
+      selectedColor: "red"
+    };
 
-    	this.updateColor = this.updateColor.bind(this);
-  	}
+    this.updateColor = this.updateColor.bind(this);
+  }
 
-	updateColor(color) {
-	  this.setState(function () {
-	      return {
-	      	selectedColor: color
-	      }
-	    });
-  	}
+  updateColor(color) {
+    this.setState(function() {
+      return {
+        selectedColor: color
+      };
+    });
+  }
 
-	render() {
-		return (
-			<div className='row'>
-				<SelectColor onSelect={this.updateColor} />
-				<TemplateDisplay color={this.state.selectedColor} />
-			</div>
-		)
-	}
+  render() {
+    return (
+      <div className="row">
+        <SelectColor onSelect={this.updateColor} />
+        <TemplateDisplay color={this.state.selectedColor} />
+      </div>
+    );
+  }
 }
 
-module.exports = ColorSelector;
+export default ColorSelector;

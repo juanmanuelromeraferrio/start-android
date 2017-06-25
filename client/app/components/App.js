@@ -1,42 +1,38 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactRouter = require('react-router-dom');
-var Router = ReactRouter.BrowserRouter;
-var Route = ReactRouter.Route;
+import React from "react";
+import ReactDOM from "react-dom";
+import ReactRouter from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { Route } from "react-router-dom";
 
-import {purple500} from 'material-ui/styles/colors';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { purple500 } from "material-ui/styles/colors";
+import getMuiTheme from "material-ui/styles/getMuiTheme";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
-var NavBar = require('./NavBar');
-var Card = require('./Card');
-var ProjectStepper = require('./ProjectStepper');
-
+import NavBar from "./NavBar";
+import Card from "./Card";
+import ProjectStepper from "./ProjectStepper";
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: purple500,
-  },
+    primary1Color: purple500
+  }
 });
-
 
 class App extends React.Component {
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <MuiThemeProvider muiTheme={muiTheme}>
-        	<div>
-                <NavBar />
-        		<Card>
-                  <ProjectStepper />
-        		</Card>
-        	</div>
+          <div>
+            <NavBar />
+            <div className="container">
+              <ProjectStepper />
+            </div>
+          </div>
         </MuiThemeProvider>
-      </Router>
-    )
+      </BrowserRouter>
+    );
   }
 }
 
-module.exports = App;
-
-//<Nav color='#9575cd' logo={require('../styles/images/android-logo.png')} />
+export default App;

@@ -1,12 +1,11 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-require('./index.css');
-var App = require('./components/App');
+import styles from './index.css';
+import App from './components/App';
 
 injectTapEventPlugin();
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('app')
+ReactDOM.render( < App / > ,
+    document.getElementById('app')
 );
