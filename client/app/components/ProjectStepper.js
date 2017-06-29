@@ -7,9 +7,17 @@ import DesignStep from './DesignStep';
 
 import assign from 'object-assign';
 
+import { indigo500 } from "material-ui/styles/colors";
+import { pink500 } from "material-ui/styles/colors";
+import { gray50 } from "material-ui/styles/colors";
+
 var projectsValues = {
     name: '',
-    package: ''
+    package: '',
+    primaryColor: indigo500,
+    secondaryColor: pink500, 
+    primaryTextColor: gray50, 
+    secondaryTextColor: indigo500,
 };
 
 class ProjectStepper extends React.Component {
@@ -79,7 +87,7 @@ class ProjectStepper extends React.Component {
         const { finished, stepIndex } = this.state;
 
         return (
-            <div style={{ width: '100%', maxWidth: 700, margin: 'auto' }}>
+            <div style={{ width: '100%', maxWidth: 1200, margin: 'auto' }}>
                 <Stepper activeStep={stepIndex}>
                     <Step>
                         <StepLabel>Project Setting</StepLabel>
