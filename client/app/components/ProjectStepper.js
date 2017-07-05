@@ -1,23 +1,29 @@
-import React from 'react';
-import { Step, Stepper, StepLabel } from 'material-ui/Stepper';
+import React from "react";
+import { Step, Stepper, StepLabel } from "material-ui/Stepper";
 
-import StepButtons from './StepButtons';
-import SettingStep from './SettingStep';
-import DesignStep from './DesignStep';
+import StepButtons from "./StepButtons";
+import SettingStep from "./SettingStep";
+import DesignStep from "./DesignStep";
 
-import assign from 'object-assign';
+import assign from "object-assign";
 
 import { indigo500 } from "material-ui/styles/colors";
 import { pink500 } from "material-ui/styles/colors";
 import { gray50 } from "material-ui/styles/colors";
 
+import MaterialColor from "../utils/MaterialColor";
+
+var colors = {
+    primaryColor: new MaterialColor(indigo500),
+    secondaryColor: new MaterialColor(pink500),
+    primaryTextColor: indigo500,
+    secondaryTextColor: indigo500
+};
+
 var projectsValues = {
-    name: '',
-    package: '',
-    primaryColor: indigo500,
-    secondaryColor: pink500, 
-    primaryTextColor: gray50, 
-    secondaryTextColor: indigo500,
+    name: "",
+    package: "",
+    colors: colors
 };
 
 class ProjectStepper extends React.Component {
@@ -26,7 +32,7 @@ class ProjectStepper extends React.Component {
 
         this.state = {
             finished: false,
-            stepIndex: 0
+            stepIndex: 1
         };
 
         this.handleNext = this.handleNext.bind(this);
@@ -73,21 +79,21 @@ class ProjectStepper extends React.Component {
                 );
                 break;
             case 2:
-                stepContent = 'Project Dependencies';
+                stepContent = "Project Dependencies";
                 break;
             default:
-                return (stepContent = 'None');
+                return (stepContent = "None");
                 break;
         }
 
-        return <div className='content'> {stepContent} </div>;
+        return <div className="content"> {stepContent} </div>;
     }
 
     render() {
         const { finished, stepIndex } = this.state;
 
         return (
-            <div style={{ width: '100%', maxWidth: 1200, margin: 'auto' }}>
+            <div style={{ width: "100%", maxWidth: 1200, margin: "auto" }}>
                 <Stepper activeStep={stepIndex}>
                     <Step>
                         <StepLabel>Project Setting</StepLabel>
@@ -99,13 +105,11 @@ class ProjectStepper extends React.Component {
                         <StepLabel>Project Dependencies</StepLabel>
                     </Step>
                 </Stepper>
-                <div className='step-container'>
-                    {
-                        finished
-                        ? 
-                        <p>
+                <div className="step-container">
+                    {finished
+                        ? <p>
                               <a
-                                  href='#'
+                                  href="#"
                                   onClick={event => {
                                       event.preventDefault();
                                       this.setState({
@@ -114,14 +118,13 @@ class ProjectStepper extends React.Component {
                                       });
                                   }}
                               >
-                                Click here
-                              </a> to reset the example.
-                        </p>
-                        : 
-                        <div>
-                            {this.getStepContent(stepIndex)}
-                        </div>
-                    }
+                                  Click here
+                              </a>{" "}
+                              to reset the example.
+                          </p>
+                        : <div>
+                              {this.getStepContent(stepIndex)}
+                          </div>}
                 </div>
             </div>
         );

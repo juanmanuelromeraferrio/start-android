@@ -2,78 +2,42 @@ import React from "react";
 import PropTypes from "prop-types";
 import Arrow from "material-ui/svg-icons/hardware/keyboard-backspace";
 
-const iconStyles = {
-	marginRight: 24
-};
-
-/*
-<Arrow style={iconStyles} />
-*/
-
 class PaletteButtons extends React.Component {
 	constructor(props) {
 		super();
 
 		this.selectButton = this.selectButton.bind(this);
+		this.renderButton = this.renderButton.bind(this);
+	}
+
+	renderButton(button) {
+		return (
+			<div
+				id={button.id}
+				key={button.id}
+				className={
+					this.props.selectButton === button.id
+						? "pl-button-active " + button.type
+						: "pl-button " + button.type
+				}
+				style={{ background: button.color }}
+				onClick={this.selectButton}
+			>
+				{button.name}
+			</div>
+		);
 	}
 
 	selectButton(event) {
-		const target = event.target;
-		const button = target.id;
+		event.preventDefault();
+		const button = event.target.id;
 		this.props.onSelect(button);
 	}
 
 	render() {
 		return (
 			<div className="palette-button-container">
-				<div
-					id="primaryColor"
-					className={
-						this.props.selectButton === "primaryColor"
-							? "pl-button-active color"
-							: "pl-button color"
-					}
-					style={{ background: this.props.primaryColor }}
-					onClick={this.selectButton}
-				>
-					Color Primary
-				</div>
-				<div
-					id="secondaryColor"
-					className={
-						this.props.selectButton === "secondaryColor"
-							? "pl-button-active color"
-							: "pl-button color"
-					}
-					style={{ background: this.props.secondaryColor }}
-					onClick={this.selectButton}
-				>
-					Color Secondary
-				</div>
-				<div
-					id="primaryTextColor"
-					className={
-						this.props.selectButton === "primaryTextColor"
-							? "pl-button-active text"
-							: "pl-button text"
-					}
-					style={{ background: this.props.primaryTextColor }}
-					onClick={this.selectButton}
-				>
-					Text Primary
-				</div>
-				<div
-					id="secondaryTextColor"
-					className={
-						this.props.selectButton === "secondaryTextColor"
-							? "pl-button-active text"
-							: "pl-button text"
-					}
-					style={{ background: this.props.secondaryTextColor }}
-					onClick={this.selectButton}
-				>
-					Text Secondary
-				</div>
+				{this.props.buttons.map(button => this.renderButton(button))}
 			</div>
 		);
 	}
@@ -82,10 +46,7 @@ class PaletteButtons extends React.Component {
 PaletteButtons.propTypes = {
 	selectButton: PropTypes.string.isRequired,
 	onSelect: PropTypes.func.isRequired,
-	primaryColor: PropTypes.string.isRequired,
-	secondaryColor: PropTypes.string.isRequired,
-	primaryTextColor: PropTypes.string.isRequired,
-	secondaryTextColor: PropTypes.string.isRequired
+	buttons: PropTypes.array.isRequired,
 };
 
 export default PaletteButtons;

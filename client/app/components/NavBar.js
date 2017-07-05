@@ -16,7 +16,7 @@ class NavBar extends React.Component {
 				title="Start Android"
 				iconElementLeft={
 					<IconButton iconStyle={logoStyle} href="/">
-						<Logo viewBox="0 0 550 550" />
+						<Logo viewBox="0 0 550 550" color="#FFF"/>
 					</IconButton>
 				}
 			/>
