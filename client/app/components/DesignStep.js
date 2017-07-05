@@ -4,6 +4,17 @@ import TextField from "material-ui/TextField";
 import StepButtons from "./StepButtons";
 import Palette from "./Palette";
 import PaletteButtons from "./PaletteButtons";
+import LoginTemplate from "./LoginTemplate";
+import MaterialColor from "../utils/MaterialColor";
+import ColorButton from "../utils/ColorButton";
+
+
+function isColorButton(buttonId) {
+	if (buttonId.indexOf("Text") >= 0) {
+		return false;
+	}
+	return true;
+}
 
 class DesignStep extends React.Component {
 	constructor(props) {
@@ -21,12 +32,18 @@ class DesignStep extends React.Component {
 	}
 
 	selectColor(color) {
-	    var newValues = this.state.values;
-	    newValues[this.state.buttonSelected] = color;
+		var newValues = this.state.values;
+		if (isColorButton(this.state.buttonSelected)) {
+			newValues.colors[this.state.buttonSelected] = new MaterialColor(
+				color
+			);
+		} else {
+			newValues.colors[this.state.buttonSelected] = color;
+		}
 
-	    this.setState({ 
-	    	values: newValues
-	    })
+		this.setState({
+			values: newValues
+		});
 	}
 
 	selectButton(button) {
@@ -46,6 +63,32 @@ class DesignStep extends React.Component {
 	}
 
 	render() {
+		const buttons = [
+			new ColorButton(
+				"primaryColor",
+				"Primary Color",
+				"color",
+				this.state.values.colors.primaryColor.color
+			),
+			new ColorButton(
+				"secondaryColor",
+				"Secondary Color",
+				"color",
+				this.state.values.colors.secondaryColor.color
+			),
+			new ColorButton(
+				"primaryTextColor",
+				"Text Primary",
+				"text",
+				this.state.values.colors.primaryTextColor
+			),
+			new ColorButton(
+				"secondaryTextColor",
+				"Text Secondary",
+				"text",
+				this.state.values.colors.secondaryTextColor
+			)
+		];
 		return (
 			<div>
 				<div className="design-container">
@@ -53,11 +96,18 @@ class DesignStep extends React.Component {
 					<PaletteButtons
 						selectButton={this.state.buttonSelected}
 						onSelect={this.selectButton}
-						primaryColor={this.state.values.primaryColor}
-						secondaryColor={this.state.values.secondaryColor}
-						primaryTextColor={this.state.values.primaryTextColor}
+						buttons={buttons}
+					/>
+					<LoginTemplate
+						primaryColors={this.state.values.colors.primaryColor}
+						secondaryColors={
+							this.state.values.colors.secondaryColor
+						}
+						primaryTextColor={
+							this.state.values.colors.primaryTextColor
+						}
 						secondaryTextColor={
-							this.state.values.secondaryTextColor
+							this.state.values.colors.secondaryTextColor
 						}
 					/>
 				</div>
