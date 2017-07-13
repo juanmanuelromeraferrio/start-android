@@ -188,12 +188,11 @@ li {
 }
 
 .login-template-container > * {
-    padding: 10px;
     flex: 1 100%;
 }
 
 .template-status {
-    height: 12px;
+    height: 15px;
     transition: background-color 100ms;
 }
 
