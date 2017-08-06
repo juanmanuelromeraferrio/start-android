@@ -5,9 +5,12 @@ import StepButtons from "./StepButtons";
 import Palette from "./Palette";
 import PaletteButtons from "./PaletteButtons";
 import LoginTemplate from "./LoginTemplate";
+import RegistrationTemplate from "./RegistrationTemplate";
 import MaterialColor from "../utils/MaterialColor";
 import ColorButton from "../utils/ColorButton";
-
+import ArrowLeft from "material-ui/svg-icons/hardware/keyboard-arrow-left";
+import ArrowRight from "material-ui/svg-icons/hardware/keyboard-arrow-right";
+import IconButton from "material-ui/IconButton";
 
 function isColorButton(buttonId) {
 	if (buttonId.indexOf("Text") >= 0) {
@@ -16,19 +19,44 @@ function isColorButton(buttonId) {
 	return true;
 }
 
+var tempalateNames = {
+	0: "Login",
+	1: "Registration",
+	2: "Home"
+};
+
 class DesignStep extends React.Component {
 	constructor(props) {
 		super();
 
 		this.state = {
 			values: props.values,
-			buttonSelected: "primaryColor"
+			buttonSelected: "primaryColor",
+			templateIndex: 0
 		};
 
 		this.selectColor = this.selectColor.bind(this);
 		this.selectButton = this.selectButton.bind(this);
+		this.moveTemplate = this.moveTemplate.bind(this);
 		this.next = this.next.bind(this);
 		this.back = this.back.bind(this);
+	}
+
+	moveTemplate(event, move) {
+		event.preventDefault();
+		const { templateIndex } = this.state;
+		let newTemplateIndex = templateIndex + move;
+		let size = Object.keys(tempalateNames).length;
+
+		if (newTemplateIndex >= size) {
+			newTemplateIndex = 0;
+		} else if (newTemplateIndex < 0) {
+			newTemplateIndex = size - 1;
+		}
+		console.log(newTemplateIndex);
+		this.setState({
+			templateIndex: newTemplateIndex
+		});
 	}
 
 	selectColor(color) {
@@ -60,6 +88,74 @@ class DesignStep extends React.Component {
 
 	next() {
 		this.props.next(this.state.values);
+	}
+
+	getTemplate(templateIndex) {
+		let templateContent;
+		switch (templateIndex) {
+			case 0:
+				templateContent = (
+					<LoginTemplate
+						primaryColors={this.state.values.colors.primaryColor}
+						secondaryColors={
+							this.state.values.colors.secondaryColor
+						}
+						primaryTextColor={
+							this.state.values.colors.primaryTextColor
+						}
+						secondaryTextColor={
+							this.state.values.colors.secondaryTextColor
+						}
+					/>
+				);
+				break;
+			case 1:
+				templateContent = (
+					<RegistrationTemplate
+						primaryColors={this.state.values.colors.primaryColor}
+						secondaryColors={
+							this.state.values.colors.secondaryColor
+						}
+						primaryTextColor={
+							this.state.values.colors.primaryTextColor
+						}
+						secondaryTextColor={
+							this.state.values.colors.secondaryTextColor
+						}
+					/>
+				);
+				break;
+			default:
+				templateContent = "None";
+				break;
+		}
+
+		return (
+			<div>
+				<div className="template-nav">
+					<IconButton
+						onClick={event => {
+							this.moveTemplate(event, -1);
+						}}
+					>
+						<ArrowLeft />
+					</IconButton>
+					<span>
+						{tempalateNames[this.state.templateIndex]}
+					</span>
+					<IconButton
+						onClick={event => {
+							this.moveTemplate(event, 1);
+						}}
+					>
+						<ArrowRight />
+					</IconButton>
+				</div>
+				<div>
+					{templateContent}
+				</div>
+			</div>
+		);
 	}
 
 	render() {
@@ -98,18 +194,7 @@ class DesignStep extends React.Component {
 						onSelect={this.selectButton}
 						buttons={buttons}
 					/>
-					<LoginTemplate
-						primaryColors={this.state.values.colors.primaryColor}
-						secondaryColors={
-							this.state.values.colors.secondaryColor
-						}
-						primaryTextColor={
-							this.state.values.colors.primaryTextColor
-						}
-						secondaryTextColor={
-							this.state.values.colors.secondaryTextColor
-						}
-					/>
+					{this.getTemplate(this.state.templateIndex)}
 				</div>
 				<StepButtons back={this.back} next={this.next} />
 			</div>
